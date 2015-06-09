@@ -15,6 +15,43 @@ public class Ponto {
      * Retorna no nome não-qualificado da classe.
      * @return O nome não qualificado da classe.
      */
+    public Ponto(){
+        this.x = 0;
+        this.y = 0;
+        this.z = 0;
+    }
+    
+    public Ponto (double  X, double Y, double Z){
+    this.x = X;
+    this.y = Y;
+    this.z = Z;
+    
+    }
+    
+    @Override
+    public String toString(){
+        return String.format("%s(%.5f,%.5f,%.5f"this.getNome(), this.x, this.y, this.z);
+    }
+    
+    /**
+     *
+     * @param ponto
+     * @return
+     */
+    public boolean equals(Object ponto){
+        Ponto test = (Ponto) ponto;
+        
+        if(test.getX()==this.x && test.getY()==this.y && test.getZ()==this.z){
+            return true;
+        }
+        else
+            return false;
+        
+    }
+           
+    public double dist(Ponto ponto){
+        return (Math.sqrt(Math.pow((this.x - ponto.getX()), 2) + Math.pow((this.y - ponto.getY()), 2) + Math.pow((this.z - ponto.getZ()), 2)));
+    }
     public String getNome() {
         return getClass().getSimpleName();
     }
